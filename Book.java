@@ -1,7 +1,8 @@
-import java.util.*;
-
 public interface Book {
-    public TreeSet<Integer> getNumbers(String name);
-    public TreeSet<String> getNames(Integer number);
-    public void addEntry(String name, Integer Number);
+    public static void getNumbers(String name){
+    }
+    public static void getNames(Integer number){
+    }
+    public static void addEntry(String name, Integer Number){
+    }
 }
