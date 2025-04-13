@@ -29,8 +29,9 @@ public class Main {
         FirstPersonShooterRecord.updateStats(0, 100, 0);
         //nevermind T_T
         FirstPersonShooterRecord.startMatch();
-        FirstPersonShooterRecord.updateStats(10000,0,100000);
-        //REDEMPTION!!!!!! I CARRIED MY TEAM AS ALWAYS RIGHT.......
+        //ha, I was just holding back. That was not even ONE PERCENT of my power...
+        FirstPersonShooterRecord.updateStats(1000000000,0,0);
+
         FirstPersonShooterRecord.getStats(LocalDate.now());
         FirstPersonShooterRecord.getStats(LocalDate.of(2003,4,10));
     }

@@ -4,7 +4,8 @@ import java.time.LocalDate;
 public class FirstPersonShooterRecord {
     public static LinkedList<Match> matchRecord = new LinkedList<Match>();
     //We use a linked list since it allows us to update and get information from
-    //recent games faster.
+    //recent games faster. This means that stats from matches will be shown in
+    //reverse chronological order.
 
 
     //creates a match with today's date
@@ -12,8 +13,9 @@ public class FirstPersonShooterRecord {
         matchRecord.addFirst(Match.createMatch(LocalDate.now()));
     }
 
-    //allows us to update the stats of the most recent match
-    //(assuming we only want to update ongoing games)
+    //allows us to update the stats of the most recent match. I have assumed that we only want to update
+    //ongoing matches, so it is not possible to update the stats of previous games once a new game has been
+    //started.
     public static void updateStats(int k, int d, int a){
         matchRecord.peek().updateStats(k, d, a);
     }
