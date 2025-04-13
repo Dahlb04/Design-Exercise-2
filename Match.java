@@ -21,7 +21,7 @@ public class Match {
 
     //Aquires stats for a specific game
     public int[] getStats(){
-        int[] statList = new int[]{kills, deaths, assists};
+        int[] statList = {this.kills, this.deaths, this.assists};
         return statList;
     }
 

@@ -2,7 +2,7 @@ import java.util.*;
 import java.time.LocalDate;
 
 public class FirstPersonShooterRecord {
-    private static LinkedList<Match> matchRecord = new LinkedList<Match>();
+    public static LinkedList<Match> matchRecord = new LinkedList<Match>();
     //We use a linked list since it allows us to update and get information from
     //recent games faster.
 
@@ -18,29 +18,38 @@ public class FirstPersonShooterRecord {
         matchRecord.peek().updateStats(k, d, a);
     }
 
-    //returns all games played on a specific day
+    //returns how many games played on a specific day
     public static ArrayList<Match> findGames(LocalDate date){
         ListIterator<Match> it = matchRecord.listIterator();
         ArrayList<Match> games = new ArrayList<Match>();
         while(it.hasNext()){
-            if(it.next().getMatchDate().equals(date)){
-                games.add(it.previous());
+            Match temp = it.next();//we store the next match in a tempory variable
+            if(temp.getMatchDate().equals(date)){
+                games.add(temp);
             }
         }
         if(games.isEmpty()){
-            throw new IllegalArgumentException("You didn't play on this day bozo!");
-        }else return games;
+            throw new IllegalArgumentException("You didn't play on " +date+" bozo! Were you even born...?");
+        }else{
+            System.out.print("On "  +date+" you played " + games.size()+ " games. ");
+            return games;
+        } 
     }
 
     //returns all of the stats from all of the games played on a specific day
-    public static ArrayList<int[]> getStats(LocalDate date){
+    public static void getStats(LocalDate date){
         ArrayList<int[]> stats = new ArrayList<int[]>();
         ArrayList<Match> specificGames = findGames(date);
         ListIterator<Match> it = specificGames.listIterator();
         while(it.hasNext()){
             stats.add(it.next().getStats());
         }
-        return stats;
+        System.out.println("Here are the KDAs from all of the games you played: ");
 
+        //in order to print out the arrays of ints (stats) from the arraylist of int[], we need to use
+        // a for-loop and the array toString() method.
+        for(int[] KDA : stats){
+            System.out.println(Arrays.toString(KDA));
+        }
     }
 }
